@@ -28,7 +28,7 @@ impl Template {
         let mut data = BTreeMap::new();
         data.insert("base_subject".to_string(), subject.to_string());
         data.insert("base_pre_header".to_string(), pre_header.to_string());
-        data.insert("base_app_name".to_string(), "Hoodik".to_string());
+        data.insert("base_app_name".to_string(), "securevaultx".to_string());
         data.insert("base_app_version".to_string(), "unknown".to_string());
 
         let builder = Message::builder().subject(subject);

@@ -26,7 +26,7 @@ const secret = ref<string>()
 const email = ref<string>()
 
 const qrcode = computed(() => {
-  const issuer = 'Hoodik Encrypted File Storage'
+  const issuer = 'securevaultx Encrypted File Storage'
 
   return `otpauth://totp/${issuer}:${email.value}?secret=${secret.value}&issuer=${issuer}`
 })

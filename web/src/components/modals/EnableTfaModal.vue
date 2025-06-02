@@ -29,7 +29,7 @@ type Values = {
 
 const secret = ref('')
 const qrcode = computed(() => {
-  const issuer = 'Hoodik Encrypted File Storage'
+  const issuer = 'securevaultx Encrypted File Storage'
 
   return `otpauth://totp/${issuer}:${user.value.email}?secret=${secret.value}&issuer=${issuer}`
 })

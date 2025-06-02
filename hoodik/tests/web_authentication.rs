@@ -12,7 +12,7 @@ use auth::{
     mock::generate_fingerprint_nonce,
 };
 use context::SenderContract;
-use hoodik::server;
+use securevaultx::server;
 
 #[actix_web::test]
 async fn test_registration_and_login() {

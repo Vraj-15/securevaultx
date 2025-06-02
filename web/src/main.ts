@@ -16,10 +16,10 @@ import { serviceWorkerFile } from 'virtual:vite-plugin-service-worker'
 
 try {
   if ('Worker' in window) {
-    window.UPLOAD = new Worker(serviceWorkerFile, { type: 'module', name: 'Hoodik Upload Worker' })
+    window.UPLOAD = new Worker(serviceWorkerFile, { type: 'module', name: 'securevaultx Upload Worker' })
     window.DOWNLOAD = new Worker(serviceWorkerFile, {
       type: 'module',
-      name: 'Hoodik Download Worker'
+      name: 'securevaultx Download Worker'
     })
   }
 } catch (error) {
@@ -54,7 +54,7 @@ if (
 }
 
 /* Default title tag */
-window.defaultDocumentTitle = import.meta.env.APP_NAME || 'Hoodik'
+window.defaultDocumentTitle = import.meta.env.APP_NAME || 'securevaultx'
 
 /* Set document title from route meta */
 router.afterEach((to) => {

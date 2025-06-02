@@ -93,7 +93,7 @@ async function setupSingleWorker(index: number): Promise<void> {
   return new Promise((resolve) => {
     const worker = new Worker(serviceWorkerFile, {
       type: 'module',
-      name: `Hoodik Crypto Worker ${index} - parent: ${self.__IDENTITY || 'unknown'}`
+      name: `securevaultx Crypto Worker ${index} - parent: ${self.__IDENTITY || 'unknown'}`
     })
 
     worker.onmessage = async (event) => {

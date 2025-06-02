@@ -1,9 +1,13 @@
+use dotenvy::dotenv;
 use error::AppResult;
-use hoodik::{Config, Context};
+use securevaultx::{Config, Context};
 use migration::{Migrator, MigratorTrait};
 
 #[actix_web::main]
 async fn main() -> AppResult<()> {
+    // ✅ Load environment variables from .env
+    dotenvy::dotenv().ok();
+
     // Catch any panic from any thread running and dump it here
     // This enables us to kill the entire process if any of the child threads die
     let origin_hook = std::panic::take_hook();
@@ -14,9 +18,9 @@ async fn main() -> AppResult<()> {
 
     // Initialize the configuration of the app
     let mut config = Config::new(
-        "Hoodik",
+        "securevaultx",
         env!("CARGO_PKG_VERSION"),
-        "Hoodik is a simple, fast and end to end encrypted cloud storage.",
+        "securevaultx is a simple, fast and end to end encrypted cloud storage.",
     );
 
     config.app.ensure_data_dir(None);
@@ -33,5 +37,5 @@ async fn main() -> AppResult<()> {
     env_logger::init();
 
     // Start the server
-    hoodik::server::engage(context).await
+    securevaultx::server::engage(context).await
 }

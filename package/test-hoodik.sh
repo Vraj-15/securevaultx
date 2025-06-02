@@ -5,32 +5,32 @@ set -x
 
 case $1 in
   post-install)
-    echo -e "\nHOODIK VERSION:"
-    hoodik --version
-    echo -e "\nHOODIK CONF:"
-    cat /etc/hoodik.conf
-    echo -e "\nHOODIK SERVICE STATUS BEFORE ENABLE:"
-    systemctl status hoodik || true
-    echo -e "\nENABLE HOODIK SERVICE:"
-    systemctl enable hoodik
-    echo -e "\nHOODIK SERVICE STATUS AFTER ENABLE:"
-    systemctl status hoodik || true
-    echo -e "\nSTART HOODIK SERVICE:"
-    systemctl start hoodik
+    echo -e "\nsecurevaultx VERSION:"
+    securevaultx --version
+    echo -e "\nsecurevaultx CONF:"
+    cat /etc/securevaultx.conf
+    echo -e "\nsecurevaultx SERVICE STATUS BEFORE ENABLE:"
+    systemctl status securevaultx || true
+    echo -e "\nENABLE securevaultx SERVICE:"
+    systemctl enable securevaultx
+    echo -e "\nsecurevaultx SERVICE STATUS AFTER ENABLE:"
+    systemctl status securevaultx || true
+    echo -e "\nSTART securevaultx SERVICE:"
+    systemctl start securevaultx
     
-    echo -e "\nHOODIK SERVICE STATUS AFTER START:"
+    echo -e "\nsecurevaultx SERVICE STATUS AFTER START:"
     sleep 1s
-    systemctl status hoodik
+    systemctl status securevaultx
     ;;
 
   post-upgrade)
-    echo -e "\nHOODIK VERSION:"
-    hoodik --version
+    echo -e "\nsecurevaultx VERSION:"
+    securevaultx --version
 
-    echo -e "\nHOODIK CONF:"
-    cat /etc/hoodik.conf
+    echo -e "\nsecurevaultx CONF:"
+    cat /etc/securevaultx.conf
 
-    echo -e "\nHOODIK SERVICE STATUS:"
-    systemctl status hoodik || true
+    echo -e "\nsecurevaultx SERVICE STATUS:"
+    systemctl status securevaultx || true
     ;;
 esac

@@ -1,0 +1,9 @@
+{
+  "users": {
+    "quota_bytes": null,
+    "allow_register": true,
+    "enforce_email_activation": false,
+    "email_whitelist": null,
+    "email_blacklist": null
+  }
+}

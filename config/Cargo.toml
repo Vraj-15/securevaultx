@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["Tibor Hudik <hello@hudik.eu>"]
 readme = "README.md"
 license-file = "../LICENSE.md"
-description = "Hoodik app configuration service and wrapper"
+description = "securevaultx app configuration service and wrapper"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

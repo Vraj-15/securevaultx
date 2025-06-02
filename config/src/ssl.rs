@@ -26,7 +26,7 @@ pub struct SslConfig {
     ///
     /// *optional*
     ///
-    /// default: DATA_DIR/hoodik.crt.pem
+    /// default: DATA_DIR/securevaultx.crt.pem
     pub cert_file: String,
 
     /// SSL_KEY_FILE: Location of the ssl key file, this will be loaded and setup on to the server
@@ -35,7 +35,7 @@ pub struct SslConfig {
     ///
     /// *optional*
     ///
-    /// default: DATA_DIR/hoodik.key.pem
+    /// default: DATA_DIR/securevaultx.key.pem
     pub key_file: String,
 }
 
@@ -44,8 +44,8 @@ impl SslConfig {
         let disabled = vars.var_default("SSL_DISABLED", false);
 
         let cert_file =
-            vars.var_default("SSL_CERT_FILE", format!("{}/hoodik.crt.pem", app.data_dir));
-        let key_file = vars.var_default("SSL_KEY_FILE", format!("{}/hoodik.key.pem", app.data_dir));
+            vars.var_default("SSL_CERT_FILE", format!("{}/securevaultx.crt.pem", app.data_dir));
+        let key_file = vars.var_default("SSL_KEY_FILE", format!("{}/securevaultx.key.pem", app.data_dir));
 
         vars.panic_if_errors("SslConfig");
 

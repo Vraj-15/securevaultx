@@ -56,7 +56,7 @@ impl From<Vars> for Config {
 impl Config {
     /// Don't load any environment variables, just use the defaults
     pub fn empty() -> Self {
-        Self::from(Vars::create("Hoodik", "v0.1.0", "Hoodik"))
+        Self::from(Vars::create("securevaultx", "v0.1.0", "securevaultx"))
     }
 
     /// Create a new config with the given name, version and about
@@ -72,6 +72,6 @@ impl Config {
     #[cfg(feature = "mock")]
     /// Create a new config with the given name, version and about
     pub fn mock_with_env() -> Self {
-        Self::from(Vars::env_only("Hoodik", "v0.1.0", "Hoodik"))
+        Self::from(Vars::env_only("securevaultx", "v0.1.0", "securevaultx"))
     }
 }

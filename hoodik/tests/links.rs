@@ -3,7 +3,7 @@ mod helpers;
 
 use actix_web::test;
 use auth::data::create_user::CreateUser;
-use hoodik::server;
+use securevaultx::server;
 use links::data::app_link::AppLink;
 use storage::data::app_file::AppFile;
 

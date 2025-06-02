@@ -25,7 +25,7 @@ pub struct AuthConfig {
     ///
     /// *optional*
     ///
-    /// *default: hoodik_session*
+    /// *default: securevaultx_session*
     pub session_cookie: String,
 
     /// REFRESH_COOKIE This is the cookie name of the refresh token that will be used to refresh the session
@@ -33,7 +33,7 @@ pub struct AuthConfig {
     ///
     /// *optional*
     ///
-    /// *default: hoodik_refresh*
+    /// *default: securevaultx_refresh*
     pub refresh_cookie: String,
 
     /// COOKIE_HTTP_ONLY This tells us if the cookie is supposed to be http only or not. Http only cookie will
@@ -84,8 +84,8 @@ pub struct AuthConfig {
 impl AuthConfig {
     pub(crate) fn new(app: &AppConfig, vars: &mut Vars) -> Self {
         let jwt_secret = vars.var_default("JWT_SECRET", uuid::Uuid::new_v4().to_string());
-        let session_cookie = vars.var_default("SESSION_COOKIE", "hoodik_session".to_string());
-        let refresh_cookie = vars.var_default("REFRESH_COOKIE", "hoodik_refresh".to_string());
+        let session_cookie = vars.var_default("SESSION_COOKIE", "securevaultx_session".to_string());
+        let refresh_cookie = vars.var_default("REFRESH_COOKIE", "securevaultx_refresh".to_string());
         let cookie_http_only = vars.var_default("COOKIE_HTTP_ONLY", true);
         let cookie_secure = vars.var_default("COOKIE_SECURE", true);
         let cookie_same_site = parse_cookie_same_site(vars);

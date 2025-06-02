@@ -20,8 +20,8 @@ pub(crate) fn extract_cookies(
         .collect::<Vec<actix_web::cookie::Cookie<'static>>>()
         .into_iter();
 
-    let jwt = cookies.clone().find(|c| c.name() == "hoodik_session");
-    let refresh = cookies.find(|c| c.name() == "hoodik_refresh");
+    let jwt = cookies.clone().find(|c| c.name() == "securevaultx_session");
+    let refresh = cookies.find(|c| c.name() == "securevaultx_refresh");
 
     (jwt, refresh)
 }

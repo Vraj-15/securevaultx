@@ -1,16 +1,16 @@
 [Unit]
-Description=Hoodik Drive
+Description=securevaultx Drive
 After=network.target
 
 [Service]
 Type=simple
 Restart=always
 RestartSec=30
-User=hoodik
-ExecStart=/usr/bin/hoodik
-Environment="ENV_FILE=/etc/hoodik.conf"
-StandardOutput=append:/var/log/hoodik.log
-StandardError=append:/var/log/hoodik.log
+User=securevaultx
+ExecStart=/usr/bin/securevaultx
+Environment="ENV_FILE=/etc/securevaultx.conf"
+StandardOutput=append:/var/log/securevaultx.log
+StandardError=append:/var/log/securevaultx.log
 
 [Install]
 WantedBy=multi-user.target

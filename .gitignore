@@ -8,4 +8,4 @@ node_modules
 .DS_Store
 .turbo
 dist
-hoodik/src/client.rs
+securevaultx/src/client.rs

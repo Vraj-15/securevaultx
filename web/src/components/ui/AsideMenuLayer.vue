@@ -31,7 +31,7 @@ const lockAccountItem = computed(() => ({
 }))
 
 const name = computed(() => {
-  return import.meta.env.APP_NAME || 'Hoodik'
+  return import.meta.env.APP_NAME || 'securevaultx'
 })
 
 const version = computed(() => {

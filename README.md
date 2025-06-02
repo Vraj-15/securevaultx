@@ -1,18 +1,18 @@
-# Hoodik
+# securevaultx
 
 <p align="center">
-  <img src="./web/public/android-icon-192x192.png" alt="Hoodik" />
+  <img src="./web/public/android-icon-192x192.png" alt="securevaultx" />
 </p>
 
-Hoodik is a lightweight, secure, and self-hosted cloud storage solution. It's designed and built with Rust and Vue, focusing on end-to-end encryption that shields your data from prying eyes and hackers. Hoodik supports file uploading and downloading, making it easy for you to share files with other users. The simple and intuitive web interface makes file management a breeze. Thanks to Rust's focus on speed and performance, your data transfers will be lightning fast.
+securevaultx is a lightweight, secure, and self-hosted cloud storage solution. It's designed and built with Rust and Vue, focusing on end-to-end encryption that shields your data from prying eyes and hackers. securevaultx supports file uploading and downloading, making it easy for you to share files with other users. The simple and intuitive web interface makes file management a breeze. Thanks to Rust's focus on speed and performance, your data transfers will be lightning fast.
 
 <p align="center">
-  <img src="./screenshot.png" alt="Hoodik" />
+  <img src="./screenshot.png" alt="securevaultx" />
 </p>
 
 ## Features
 
-Hoodik is designed with a central goal: to store your files securely. Files are encrypted and decrypted on your device during download and upload.
+securevaultx is designed with a central goal: to store your files securely. Files are encrypted and decrypted on your device during download and upload.
 
 To ensure end-to-end encryption remains fast and efficient while enabling file sharing among application users, a hybrid encryption approach is used:
 - Upon registration, each user receives a generated RSA key pair.
@@ -48,7 +48,7 @@ Files are stored in chunks and each chunk is encrypted individually. This enable
 While the application itself can handle incoming traffic, we recommend using a reverse proxy, such as [Nginx Proxy Manager](https://nginxproxymanager.com/), for optimal results.
 
 ```shell
-docker run --name hoodik -it -d \
+docker run --name securevaultx -it -d \
   -e DATA_DIR='/data' \
   -e APP_URL='https://my-app.local' \
   -e SSL_CERT_FILE='/data/my-cert-file.crt.pem' \
@@ -58,17 +58,17 @@ docker run --name hoodik -it -d \
   -e SMTP_USERNAME='email@gmail.com' \
   -e SMTP_PASSWORD='google-account-app-password' \
   -e SMTP_PORT='465' \
-  -e SMTP_DEFAULT_FROM='Hoodik Drive <email@gmail.com>' \
+  -e SMTP_DEFAULT_FROM='securevaultx Drive <email@gmail.com>' \
   --volume "$(pwd)/data:/data" \
   -p 4554:5443 \
-  hudik/hoodik:latest
+  hudik/securevaultx:latest
 ```
 
 ## Database
 
-Hoodik supports either `Sqlite` or `Postgres` databases. `Sqlite` is enabled by default and it creates a database file in your `DATA_DIR` right out of the box. If you prefer an external `Postgres` database, simply provide the `DATABASE_URL` for your `Postgres` connection.
+securevaultx supports either `Sqlite` or `Postgres` databases. `Sqlite` is enabled by default and it creates a database file in your `DATA_DIR` right out of the box. If you prefer an external `Postgres` database, simply provide the `DATABASE_URL` for your `Postgres` connection.
 
-**Please take note: The databases used with Hoodik are not interchangeable. Should you decide to switch from one database type to another after you've begun using the application, this could result in the loss of all your data.**
+**Please take note: The databases used with securevaultx are not interchangeable. Should you decide to switch from one database type to another after you've begun using the application, this could result in the loss of all your data.**
 
 ## Configuration
 
@@ -76,4 +76,4 @@ For a more detailed application configuration, please review our [environment ex
 
 ## Contributors
 
-- We thank [Nikola Matošević -Your Dear Designer](https://yourdeardesigner.com/) for the Little Hoodik logo. ❤️
+- We thank [Nikola Matošević -Your Dear Designer](https://yourdeardesigner.com/) for the Little securevaultx logo. ❤️

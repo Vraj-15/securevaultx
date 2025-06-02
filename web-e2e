@@ -5,15 +5,15 @@ set -e
 export DATA_DIR=$PWD/data-e2e
 export ENV_FILE=".env.e2e"
 
-cargo build --bin hoodik --release
+cargo build --bin securevaultx --release
 
-RUST_LOG=error $PWD/target/release/hoodik &
+RUST_LOG=error $PWD/target/release/securevaultx &
 
 node_modules/.bin/wait-on -t 600000 https://127.0.0.1:5443/api/liveness || (kill -9 $! && exit 1)
 
 export ENV_FILE="../.env.e2e"
 
-(yarn workspace @hoodik/web test:e2e) || TEST_EXIT_CODE=$?
+(yarn workspace @securevaultx/web test:e2e) || TEST_EXIT_CODE=$?
 
 kill -9 $!
 

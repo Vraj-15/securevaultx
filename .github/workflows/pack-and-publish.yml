@@ -1,11 +1,11 @@
 name: Pack and Publish
 
 env:
-  name: Hoodik
-  handle: hoodik
-  docker_repo: hoodik
+  name: securevaultx
+  handle: securevaultx
+  docker_repo: securevaultx
   strict: false
-  changelog_path: hoodik/changelog
+  changelog_path: securevaultx/changelog
   # We are trying to make jobs parallel, which means if we don't have to
   # we don't put them in the `needs` section, instead we use the artifact
   # downloader which holds until the artifact is ready, it tries to download
@@ -295,10 +295,10 @@ jobs:
           tree -a -F --noreport ./web/dist || find ./web/dist -exec ls -ld {} + | awk '{print $1, $3, $4, $9}'
 
       - name: Do a cargo check to force integration of frontend assets
-        run: cargo check -p hoodik
+        run: cargo check -p securevaultx
 
-      - name: Verify the hoodik/src/client.rs
-        run: cat hoodik/src/client.rs
+      - name: Verify the securevaultx/src/client.rs
+        run: cat securevaultx/src/client.rs
 
       - name: Cross compile
         run: cross build --bin ${{ env.handle }} --release --target ${{ matrix.target }} -v
@@ -755,7 +755,7 @@ jobs:
       - name: Sanity check (linux/amd64 images only)
         if: ${{ matrix.platform == 'linux/amd64' }}
         run: |
-          docker run --rm ${{ steps.prepare.outputs.image_name }} /usr/local/bin/hoodik --version
+          docker run --rm ${{ steps.prepare.outputs.image_name }} /usr/local/bin/securevaultx --version
 
       - name: Log into Docker Hub
         uses: docker/login-action@v3

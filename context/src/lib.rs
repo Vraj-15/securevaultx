@@ -50,16 +50,20 @@ impl Clone for Context {
 }
 
 impl Context {
-    pub async fn new(config: Config) -> AppResult<Context> {
-        let sqlite_file = format!("sqlite:{}/sqlite.db?mode=rwc", &config.app.data_dir);
+    pub async fn new(mut config: Config) -> AppResult<Context> {
+        // 🌐 Load DATABASE_URL from environment and insert into config if found
+        if let Ok(database_url) = std::env::var("DATABASE_URL") {
+            config.app.database_url = Some(database_url);
+        }
 
+        // 🗄️ Use provided DATABASE_URL or fall back to SQLite
+        let sqlite_file = format!("sqlite:{}/sqlite.db?mode=rwc", &config.app.data_dir);
         let db = match &config.app.database_url {
             Some(value) => Database::connect(value).await?,
             None => Database::connect(sqlite_file).await?,
         };
 
         let sender = email::Sender::new(&config)?;
-
         let settings = Settings::default().create(&config).await?;
 
         Ok(Context {

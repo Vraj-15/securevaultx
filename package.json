@@ -1,21 +1,22 @@
 {
   "private": true,
   "license-file": "LICENSE.md",
-  "name": "hoodik",
+  "name": "securevaultx",
   "workspaces": [
-    "hoodik",
+    "securevaultx",
     "web",
     "cryptfns"
   ],
   "scripts": {
-    "start": "yarn workspace @hoodik/web run dev & cargo run",
-    "type-check": "yarn workspace @hoodik/web run type-check",
-    "wasm-pack": "yarn workspace @hoodik/cryptfns run wasm-pack",
-    "test:unit": "yarn workspace @hoodik/web run test:unit",
-    "test:watch": "yarn workspace @hoodik/web run test:watch",
-    "cypress:open": "yarn workspace @hoodik/web run cypress open",
-    "web:build": "yarn workspace @hoodik/web run build",
-    "web:preview": "yarn web:build && yarn workspace @hoodik/web run preview"
+    "start": "yarn workspace @securevaultx/web run dev & cargo run",
+    "type-check": "yarn workspace @securevaultx/web run type-check",
+    "wasm-pack": "yarn workspace @securevaultx/cryptfns run wasm-pack",
+    "test:unit": "yarn workspace @securevaultx/web run test:unit",
+    "test:watch": "yarn workspace @securevaultx/web run test:watch",
+    "cypress:open": "yarn workspace @securevaultx/web run cypress open",
+    "web:build": "yarn workspace @securevaultx/web run build",
+    "web:preview": "yarn web:build && yarn workspace @securevaultx/web run preview"
+    
   },
   "packageManager": "yarn@1.22.19",
   "devDependencies": {

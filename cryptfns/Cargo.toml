@@ -4,8 +4,8 @@ version = "1.0.2"
 edition = "2021"
 authors = ["Tibor Hudik <hello@hudik.eu>"]
 license-file = "../LICENSE.md"
-repository = "https://github.com/htunlogic/hoodik"
-description = "A library with tools prepared for encryption and decryption of data within the Hoodik application"
+repository = "https://github.com/htunlogic/securevaultx"
+description = "A library with tools prepared for encryption and decryption of data within the securevaultx application"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

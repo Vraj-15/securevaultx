@@ -4,7 +4,7 @@ mod helpers;
 use actix_web::{http::StatusCode, test};
 use auth::data::create_user::CreateUser;
 use fs::IntoFilename;
-use hoodik::server;
+use securevaultx::server;
 use storage::data::app_file::AppFile;
 
 use crate::helpers::{calculate_checksum, create_byte_chunks, CHUNKS, CHUNK_SIZE_BYTES};

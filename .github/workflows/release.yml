@@ -1,7 +1,7 @@
 name: Create Release
 
 env:
-  HANDLE: hoodik
+  HANDLE: securevaultx
 
 on:
   workflow_dispatch:
@@ -17,7 +17,7 @@ on:
     branches:
       - master
     paths:
-      - hoodik/Cargo.toml
+      - securevaultx/Cargo.toml
 
 jobs:
   create-release:

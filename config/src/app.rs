@@ -65,7 +65,7 @@ pub struct AppConfig {
 
     /// APP_NAME
     /// This is the name of the application, it will be automatically
-    /// filled if it hasn't been provided in the env to be something else then Hoodik
+    /// filled if it hasn't been provided in the env to be something else then securevaultx
     pub name: String,
 
     /// APP_VERSION
@@ -82,7 +82,7 @@ impl AppConfig {
             .var_default("HTTP_ADDRESS", "localhost".to_string())
             .get();
         let port = vars.var_default("HTTP_PORT", 5443).get();
-        let name = vars.var_default("APP_NAME", "Hoodik".to_string());
+        let name = vars.var_default("APP_NAME", "securevaultx".to_string());
         let version = vars.get_version();
         let app_url = vars
             .var_default::<Url>(

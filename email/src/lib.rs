@@ -52,7 +52,7 @@ impl Sender {
     #[cfg(feature = "mock")]
     pub fn mock() -> Self {
         Self {
-            app_name: "Mock Hoodik".to_string(),
+            app_name: "Mock securevaultx".to_string(),
             app_version: "0.1.0".to_string(),
             inner: Box::new(MockSender::new()),
         }

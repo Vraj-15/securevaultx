@@ -3,7 +3,7 @@ mod helpers;
 
 use actix_web::{http::StatusCode, test};
 use auth::data::create_user::CreateUser;
-use hoodik::server;
+use securevaultx::server;
 use settings::{data::Users, factory::Factory};
 
 #[actix_web::test]

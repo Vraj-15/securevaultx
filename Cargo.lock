@@ -2057,34 +2057,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "hoodik"
-version = "1.5.1"
-dependencies = [
- "actix-cors",
- "actix-web",
- "admin",
- "auth",
- "chrono",
- "config",
- "context",
- "cryptfns",
- "email",
- "entity",
- "env_logger",
- "error",
- "fs",
- "links",
- "log",
- "migration",
- "openssl",
- "reqwest",
- "serde",
- "serde_json",
- "settings",
- "storage",
-]
-
-[[package]]
 name = "hostname"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3892,6 +3864,35 @@ name = "seahash"
 version = "4.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1c107b6f4780854c8b126e228ea8869f4d7b71260f962fefb57b996b8959ba6b"
+
+[[package]]
+name = "securevaultx"
+version = "1.5.1"
+dependencies = [
+ "actix-cors",
+ "actix-web",
+ "admin",
+ "auth",
+ "chrono",
+ "config",
+ "context",
+ "cryptfns",
+ "dotenvy",
+ "email",
+ "entity",
+ "env_logger",
+ "error",
+ "fs",
+ "links",
+ "log",
+ "migration",
+ "openssl",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "settings",
+ "storage",
+]
 
 [[package]]
 name = "security-framework"
