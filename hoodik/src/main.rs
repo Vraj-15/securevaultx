@@ -1,4 +1,3 @@
-use dotenvy::dotenv;
 use error::AppResult;
 use securevaultx::{Config, Context};
 use migration::{Migrator, MigratorTrait};
@@ -6,7 +5,16 @@ use migration::{Migrator, MigratorTrait};
 #[actix_web::main]
 async fn main() -> AppResult<()> {
     // ✅ Load environment variables from .env
-    dotenvy::dotenv().ok();
+    match dotenvy::dotenv() {
+        Ok(path) => println!("Loaded .env from: {:?}", path),
+        Err(e) => println!("Failed to load .env file: {}", e),
+    }
+
+    // Debug: Check if DATABASE_URL is available
+    match std::env::var("DATABASE_URL") {
+        Ok(url) => println!("DATABASE_URL found: {}", url),
+        Err(_) => println!("DATABASE_URL not found in environment"),
+    }
 
     // Catch any panic from any thread running and dump it here
     // This enables us to kill the entire process if any of the child threads die
