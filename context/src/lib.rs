@@ -53,14 +53,34 @@ impl Context {
     pub async fn new(mut config: Config) -> AppResult<Context> {
         // 🌐 Load DATABASE_URL from environment and insert into config if found
         if let Ok(database_url) = std::env::var("DATABASE_URL") {
+            println!("Context: Found DATABASE_URL: {}", database_url);
             config.app.database_url = Some(database_url);
+        } else {
+            println!("Context: No DATABASE_URL found, will use SQLite fallback");
         }
 
-        // 🗄️ Use provided DATABASE_URL or fall back to SQLite
-        let sqlite_file = format!("sqlite:{}/sqlite.db?mode=rwc", &config.app.data_dir);
         let db = match &config.app.database_url {
-            Some(value) => Database::connect(value).await?,
-            None => Database::connect(sqlite_file).await?,
+            Some(value) => {
+                println!("Context: Connecting to database: {}", value);
+                Database::connect(value).await?
+            },
+            None => {
+                // Fallback to SQLite if no DATABASE_URL is provided
+                println!("Context: Using SQLite fallback");
+                
+                // Create the data directory if it doesn't exist
+                std::fs::create_dir_all(&config.app.data_dir).map_err(|e| {
+                    println!("Failed to create data directory: {}", e);
+                    e
+                })?;
+                
+                // Use proper path construction for Windows compatibility
+                let db_path = std::path::Path::new(&config.app.data_dir).join("sqlite.db");
+                let sqlite_file = format!("sqlite:{}?mode=rwc", db_path.display());
+                println!("Context: SQLite file path: {}", sqlite_file);
+                
+                Database::connect(sqlite_file).await?
+            }
         };
 
         let sender = email::Sender::new(&config)?;
